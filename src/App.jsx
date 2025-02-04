@@ -14,8 +14,9 @@ import TabButton from "./components/TabButton";
 // };
 
 function App() {
-  function handleSelect() {
-    console.log("selected!");
+  function handleSelect(selectedTab) {
+    //selectedTab => "Components", "jsx", "Props","state"
+    console.log(selectedTab);
     // Implement tab navigation logic here
   }
 
@@ -46,10 +47,12 @@ function App() {
         <section id="examples">
           <h2>Examples</h2>
           <menu>
-            <TabButton onSelect={handleSelect}>Components</TabButton>
-            <TabButton onSelect={handleSelect}>JSX</TabButton>
-            <TabButton onSelect={handleSelect}>Props</TabButton>
-            <TabButton onSelect={handleSelect}>State</TabButton>
+            <TabButton onSelect={() => handleSelect("Components")}>
+              Components
+            </TabButton>
+            <TabButton onSelect={() => handleSelect("JSX")}>JSX</TabButton>
+            <TabButton onSelect={() => handleSelect("Props")}>Props</TabButton>
+            <TabButton onSelect={() => handleSelect("State")}>State</TabButton>
           </menu>
         </section>
       </main>
