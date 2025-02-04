@@ -1,3 +1,5 @@
+import { useState } from "react"; //React Hook
+
 import { CORE_CONCEPTS } from "./data";
 import Header from "./components/Header/Header";
 import CoreConcept from "./components/CoreConcept";
@@ -14,10 +16,16 @@ import TabButton from "./components/TabButton";
 // };
 
 function App() {
+  //useState have two elements
+  //selectedTopic is currennt state value
+  //setSelected state updating function
+
+  const [selectedTopic, setSelected] = useState("Please click a button");
+  //only call Hooks inside of components functions and on the top level
+
   function handleSelect(selectedTab) {
     //selectedTab => "Components", "jsx", "Props","state"
-    console.log(selectedTab);
-    // Implement tab navigation logic here
+    setSelected(selectedTab);
   }
 
   return (
@@ -54,6 +62,7 @@ function App() {
             <TabButton onSelect={() => handleSelect("Props")}>Props</TabButton>
             <TabButton onSelect={() => handleSelect("State")}>State</TabButton>
           </menu>
+          {selectedTopic}
         </section>
       </main>
     </div>
